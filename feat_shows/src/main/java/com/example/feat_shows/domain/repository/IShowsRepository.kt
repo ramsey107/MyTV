@@ -1,7 +1,7 @@
 package com.example.feat_shows.domain.repository
 
-import com.example.feat_shows.domain.model.TvShow
+import com.example.data.source.remote.model.feat.list.TvShow
 
 interface IShowsRepository {
-    suspend fun getPopularShows(language: String = "en-US", page: Int = 0): List<TvShow>
+    suspend fun getPopularShows(language: String = "en-US", page: Int = 1): List<TvShow>
 }

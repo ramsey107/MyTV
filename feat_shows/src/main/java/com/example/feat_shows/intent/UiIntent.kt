@@ -1,9 +1,12 @@
 package com.example.feat_shows.intent
 
-sealed interface UiIntent
+import javax.annotation.concurrent.Immutable
 
-data object LoadPopularShows : UiIntent
-data class ShowButtonClick(val id: Int) : UiIntent
-data object ScreenRefreshed : UiIntent
-data class BookMarkShow(val id: Int) : UiIntent
+@Immutable
+sealed class HomeScreenIntent {
+    data object FetchPopularShows : HomeScreenIntent()
+    data class SelectShow(val id: Int) : HomeScreenIntent()
+    data object RefreshScreen : HomeScreenIntent()
+    data class BookMarkShow(val id: Int) : HomeScreenIntent()
+}
 

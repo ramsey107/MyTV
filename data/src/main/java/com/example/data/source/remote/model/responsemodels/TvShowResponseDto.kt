@@ -1,4 +1,4 @@
-package com.example.data.source.remote.model
+package com.example.data.source.remote.model.responsemodels
 
 data class TvShowResponseDto(
     val page: Int,

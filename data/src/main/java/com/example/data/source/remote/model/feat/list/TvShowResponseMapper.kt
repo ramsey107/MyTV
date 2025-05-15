@@ -1,9 +1,10 @@
-package com.example.feat_shows.domain.model
+package com.example.data.source.remote.model.feat.list
 
 import com.example.core.utils.Mapper
-import com.example.data.source.remote.model.TvShowResponseDto
+import com.example.data.source.remote.model.responsemodels.TvShowResponseDto
+import javax.inject.Inject
 
-class MappedTvShow: Mapper<TvShowResponseDto, List<TvShow>> {
+class TvShowResponseMapper @Inject constructor(): Mapper<TvShowResponseDto, List<TvShow>> {
     override fun map(i: TvShowResponseDto): List<TvShow> {
         return i.results.map {
             TvShow(

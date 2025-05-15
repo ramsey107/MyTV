@@ -1,21 +1,23 @@
 package com.example.data.source.remote.api
 
-import com.example.data.source.remote.model.TvShowDetailsDto
-import com.example.data.source.remote.model.TvShowResponseDto
+import com.example.data.source.remote.model.responsemodels.TvShowDetailsDto
+import com.example.data.source.remote.model.responsemodels.TvShowResponseDto
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TVService {
 
-    @GET("/popular")
+    @GET("popular")
     suspend fun getPopularShows(
         @Query("language") language: String,
         @Query("page") page: Int = 1,
+        @Header("Authorization") token: String
     ): TvShowResponseDto
 
 
-    @GET("/{id}")
+    @GET("{id}")
     suspend fun getShowDetails(
         @Path("id") id: Int
     ): TvShowDetailsDto

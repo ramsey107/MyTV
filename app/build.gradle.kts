@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("org.jetbrains.kotlin.kapt")
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -68,8 +69,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.dagger.v248)
-    kapt(libs.dagger.compiler.v248)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler.v2511)
 
     implementation(project(":feat_shows"))
 }
