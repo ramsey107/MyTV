@@ -1,0 +1,5 @@
+package com.example.core.common
+
+object Keys {
+    val apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzY3YWI1MDkzZDg1NDVlMmY2Y2M2ZWZkY2M1ODkwNiIsIm5iZiI6MTU5NzA1MjU5NC44OTIsInN1YiI6IjVmMzExNmIyZjFiNTcxMDAzNmVkNTU4MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hubv8-oGhxw7N5ikosKpdvL4gNBgjkalL1i7QCIMxis"
+}

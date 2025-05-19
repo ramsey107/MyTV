@@ -12,14 +12,16 @@ interface TVService {
     @GET("popular")
     suspend fun getPopularShows(
         @Query("language") language: String,
-        @Query("page") page: Int = 1,
+        @Query("page") page: Int,
         @Header("Authorization") token: String
     ): TvShowResponseDto
 
 
     @GET("{id}")
     suspend fun getShowDetails(
-        @Path("id") id: Int
+        @Path("id") id: Int,
+        @Query("language") language: String,
+        @Header("Authorization") token: String
     ): TvShowDetailsDto
 
 }

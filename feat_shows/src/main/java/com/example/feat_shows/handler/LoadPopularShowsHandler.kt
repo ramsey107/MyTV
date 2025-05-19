@@ -1,20 +1,17 @@
 package com.example.feat_shows.handler
 
-import com.example.core.common.Errors
-import com.example.feat_shows.data.ShowsRepository
-import com.example.feat_shows.intent.HomeScreenIntent
-import com.example.feat_shows.state.UiState
+import com.example.core.handler.IntentHandler
+import com.example.core.shared.intent.UiIntent
+import com.example.core.shared.state.UiState
+import com.example.feat_shows.di.Language
+import com.example.feat_shows.repository.ShowsRepository
 import javax.inject.Inject
 
 class FetchPopularShowsHandler @Inject constructor(
-    private val showsRepository: ShowsRepository
-): IntentHandler<HomeScreenIntent.FetchPopularShows> {
-    override suspend fun handle(intent: HomeScreenIntent.FetchPopularShows): UiState {
-        return try {
-            val shows = showsRepository.getPopularShows()
-            UiState.Success(shows)
-        }catch (e: Exception){
-            UiState.Error(Errors.Unauthorized)
-        }
+    private val showsRepository: ShowsRepository,
+    @Language private val language: String
+) : IntentHandler<UiIntent.FetchPopularShows> {
+    override suspend fun handle(intent: UiIntent.FetchPopularShows): UiState {
+        return showsRepository.getPopularShows(language, intent.page)
     }
 }

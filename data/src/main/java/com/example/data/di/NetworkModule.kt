@@ -29,15 +29,6 @@ object NetworkModule {
             .build()
     }
 
-    //Interceptor for Auth request
-    /*@Provides
-    fun provideAuthInterceptor(): Interceptor = Interceptor { chain ->
-        val request = chain.request().newBuilder()
-            .addHeader("Authorization", "Bearer $key")
-            .build()
-        chain.proceed(request)
-    }*/
-
     @Provides
     @Singleton
     fun provideRetrofit(baseUrl: String, client: OkHttpClient): Retrofit {
@@ -53,4 +44,13 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit): TVService {
         return retrofit.create(TVService::class.java)
     }
+
+    //Interceptor for Auth request
+    /*@Provides
+    fun provideAuthInterceptor(): Interceptor = Interceptor { chain ->
+        val request = chain.request().newBuilder()
+            .addHeader("Authorization", "Bearer $key")
+            .build()
+        chain.proceed(request)
+    }*/
 } 
